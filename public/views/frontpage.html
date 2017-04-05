@@ -1,31 +1,15 @@
-<header ng-include="'templates/headerlogin.html'"></header>
 <div class="container">
 	<section id="content" class="frontMargin">
-	    <h2>See what other users are doing right now!</h2>	
+	    <h2>We are live and hot on port 3003!</h2>	
+        <h3>This Development environment contains</h3>
+        <ul>
+            <li>MongoDB for database with Moongoose ORM</li>
+            <li>Express for easy API creation</li>
+            <li>Angular for frontend</li>
+            <li>Node for our sweet JS server</li>
+        </ul>
+
+        <h3>NPM && Bower install</h3>
+        <h3>Be sure to run MongoDB before starting server</h3>
 	</section>
-	<div class="row">    
-        <div class="col-md-12" ng-repeat="post in posts">
-            <div class="post" style="background-image:url('data:image/jpg;base64,{{post.image}}')">
-                <a href="#/frontpage/{{post._id}}">
-                    <div class="post">                         
-                        <div class="banner">
-                            <div class="description">                    
-                                <p class="itemDescription">{{post.title}}</p>
-                            </div>
-                            <div class="rating">
-                                <p><span class="fa fa-comment-o">{{post.coments.length}}</span></p>
-                            </div>
-                            <div class="map">
-                                <span ng-hide="post.longitude == null" class="fa fa-map-marker"></span>
-                            </div>
-                            <div class="date">
-                                {{post.created_at | date}}
-                              
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>        
-        </div>
-    </div>
 </div>

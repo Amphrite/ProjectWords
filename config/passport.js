@@ -1,7 +1,9 @@
-var mongoose = require('mongoose');   
-var User = mongoose.model('User');
-// Makes it work locally
-var LocalStrategy   = require('passport-local').Strategy;
+
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var expressValidator = require('express-validator');
+
+var User = require('../app/models/users');
 var bCrypt = require('bcrypt-nodejs');
 
 module.exports = function(passport){

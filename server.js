@@ -1,80 +1,102 @@
 // Base Setup for the server - NODE.JS plugins
-var express      = require('express');
-var bodyParser   = require('body-parser');
+var express = require('express');
+var expressSession = require('express-session');
+var expressValidator = require('express-validator');
+var passport = require('passport');
+var passportLocal = require('passport-local');
+var bodyParser = require('body-parser');
 var cookieParser = require('cookie-parser');
-var path         = require('path');
-var session      = require('express-session');
-var passport     = require('passport');
-var logger       = require('morgan');
+var path = require('path');
+var session = require('express-session');
+var logger = require('morgan');
+var bCrypt = require('bcrypt-nodejs');
 
 //MongoDB
 var mongoose     = require('mongoose');
 var mongodb      = require('mongodb');
+var db 	= require ('./config/db');
+
+//Connect til mongooseDB
+mongoose.connect(db.url);
+
+//Passport config
+require('./config/passport')(passport);
 
 //App
 var app          = express();
-var port         = 1337;
-
-
-//Connect til mongooseDB
-mongoose.connect('mongodb://localhost/');
-
-//MODELS - Schemas. 
-var User = require('./models/users');
-var Post = require('./models/post');
-
-//ROUTES 
 var router = express.Router();
-var authenticate = require('./routes/authenticate')(passport);
-require('./routes/users.js')(router, mongoose, User);
-require('./routes/post.js')(router, mongoose, Post);
-require('./routes/authenticate.js')(passport);
+var port = process.env.PORT || 8000;
 
-
+//App middleware - enable logger, session, body and cookie-parser
 app.use(logger('dev'));
-app.use(session({
-  secret: 'keyboard cat',
-  resave: 'true',
-  saveUninitialized: 'true'
-}));
 app.use(bodyParser.json());
+app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(expressValidator());
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(expressSession({
+  secret: process.env.SESSION_SECRET || 'secret',
+  resave: 'false',
+  saveUninitialized: 'false'
+}));
+
+// Passport
 app.use(passport.initialize());
 app.use(passport.session());
 
+// static file location
+app.use(express.static(path.join(__dirname, 'public')));
+
+//MODELS - Schemas. 
+var User = require('./app/models/users');
+var Post = require('./app/models/post');
+
+//ROUTES 
+var authenticate = require('./app/routes/authenticate')(passport);
+require('./app/routes/users.js')(router, mongoose, User);
+require('./app/routes/post.js')(router, mongoose, Post);
+require('./app/routes/authenticate.js')(passport);
+
+// api call
 app.use('/auth', authenticate);
 app.use('/posts', Post);
 app.use('/api', router);
 
-
-
-//// Initialize Passport
-var initPassport = require('./passport-init');
-initPassport(passport);
-
-
-app.get('/', function(req, res){
-	res.sendFile('../index.html');
+app.use(function (req, res) {
+  res.header('Access-Control-Allow-Origin', '*');
 });
 
-
-//Test om der er forbindelse til API
-router.get('/', function(req, res) {
-	res.json({ message: 'Apiet virker, der er hul igennem du'});
+// Catch 404 and forward to error handler
+app.use(function (req, res, next) {
+  var err = new Error('Not found');
+  err.status = 404;
+  next(err);
 });
 
+// Development error handler
+if (app.get('env') === 'development') {
+  mongoose.set('debug', true);
+  app.use(function (err, req, res, next) {
+    res.status(500).json({
+      message: err.message,
+      error: err
+    });
+  });
+};
 
-//Besked til console når der oprettes/slettes i DB
-router.use(function(res, req, next) {
-	console.log('Der sker noget her!')
-	next();
+// Production error handler
+app.use(function (err, req, res, next) {
+  res.status(500).json({
+    message: err.message,
+    error: err
+  });
 });
 
+app.get('*', function (req, res) {
+  res.sendfile('./public/index.html');
+});
 
-//Consol besked ved start af server
 app.listen(port);
-console.log('We are live on port ' + port);
+console.log('Server running on port ' + port);
 
-module.exports = app; 
+exports = module.exports = app;
