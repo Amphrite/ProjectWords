@@ -1,0 +1,379 @@
+body {
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 14px;
+  line-height: 1.42857143;
+  color: #333;
+  background-color: #fff;
+  margin: 0;
+  display: block;
+  height: 100%;
+  width: 100%; }
+
+.bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url(../Images/bg.jpg) no-repeat center center;
+  background-size: cover;
+  filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/bg.jpg', sizingMethod='scale');
+  -ms-filter: "progid:DXImageTransform.Microsoft.AlphaImageLoader(src='../Images/bg.jpg', sizingMethod='scale')";
+  z-index: 1; }
+
+.container {
+  position: relative;
+  z-index: 2; }
+
+.container-fluid {
+  padding-left: 0;
+  padding-right: 0;
+  margin-left: 0;
+  margin-right: 0; }
+
+* {
+  margin: 0;
+  padding: 0; }
+
+button {
+  -webkit-appearance: button;
+  cursor: pointer;
+  text-transform: none;
+  overflow: visible; }
+
+a {
+  color: #d44457;
+  text-decoration: none; }
+
+a:hover {
+  text-decoration: none !important; }
+
+.slogan {
+  font-size: 15px;
+  float: left;
+  color: #a0a0a0;
+  margin-top: 17px; }
+
+.navPadding {
+  padding: 5px; }
+
+.topNav {
+  z-index: 30 !important; }
+
+.biggerNav {
+  padding: 10px; }
+
+.navbar {
+  margin-bottom: 0; }
+
+.navbar-brand {
+  padding: 0 !important; }
+
+.navbar-inverse .navbar-nav > .open > a, .navbar-inverse .navbar-nav > .open > a:focus, .navbar-inverse .navbar-nav > .open > a:hover {
+  background-color: none !important; }
+
+#main {
+  margin-top: 50px;
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%; }
+
+.fa-15x {
+  font-size: 1.5em !important; }
+
+.frontBtn {
+  display: inline-block;
+  padding: 1.2em 1.4em;
+  margin-top: .8em;
+  background-color: rgba(212, 68, 87, 0.9);
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-transform: uppercase;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  -webkit-transition: background-color 0.2s;
+  transition: background-color 0.2s; }
+
+.frontBtn:hover {
+  text-decoration: none !important;
+  color: #fff !important;
+  background-color: rgba(232, 78, 97, 0.9); }
+
+.frontHeader {
+  font-size: 3.2em !important;
+  margin-bottom: 20px !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  line-height: 1.2;
+  margin: 0 auto 14px;
+  color: #ffffff !important;
+  width: 90%;
+  max-width: 400px;
+  text-align: center; }
+
+.headerText {
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  line-height: 1.4;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin: 0 auto 14px;
+  color: #ffffff;
+  width: 90%;
+  max-width: 400px;
+  text-align: center; }
+
+@media only screen and (min-width: 1366px) {
+  #main {
+    margin-top: 80px;
+    height: 100%; } }
+
+@media only screen and (max-width: 768px) {
+  /*#main {
+        margin-top:80px;
+    }*/
+  .signupTitle {
+    margin: -25px -25px 0px !important; }
+  .formSignup {
+    width: auto !important; }
+  #footer {
+    height: auto !important; }
+  .footer-text {
+    margin-top: 25px !important;
+    margin-bottom: 25px !important; }
+  .textBoxLogin {
+    margin-left: 5% !important; }
+  .topNav {
+    margin-top: 0 !important; }
+  #profileBanner {
+    margin-top: 0; } }
+
+@media only screen and (min-width: 1170px) {
+  .textBox {
+    padding-top: 220px; } }
+
+@media only screen and (min-width: 768px) {
+  .textBox {
+    padding-top: 150px; }
+  .frontHeader, .headerText, .frontBtn {
+    opacity: 1;
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+    transform: translateX(0); }
+  .frontHeader {
+    font-size: 2.4em;
+    font-weight: 300;
+    max-width: 520px; }
+  .headerText {
+    -webkit-transition: opacity 0.4s 0.3s, -webkit-transform 0.5s 0.3s;
+    transition: opacity 0.4s 0.3s, transform 0.5s 0.3s;
+    max-width: 520px; } }
+
+.white {
+  color: #fff; }
+
+.formSignup {
+  position: relative;
+  margin: 50px auto;
+  width: 400px;
+  padding: 33px 25px 29px;
+  background: white;
+  border-bottom: 1px solid #c4c4c4;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.25); }
+
+.signupTitle {
+  margin: -25px -25px 25px;
+  padding: 15px 25px;
+  line-height: 35px;
+  font-size: 26px;
+  font-weight: 300;
+  color: #aaa;
+  text-align: center;
+  text-shadow: 0 1px rgba(255, 255, 255, 0.75);
+  background: #f7f7f7; }
+
+input[type="text"], input[type="password"], input[type="email"], input[type="number"] {
+  display: block;
+  margin: 0;
+  width: 100%;
+  font-family: 'Open Sans', sans-serif !important;
+  font-size: 18px;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  padding: 10px;
+  border: none;
+  border-bottom: solid 2px #c9c9c9;
+  -webkit-transition: border 0.3s;
+          transition: border 0.3s; }
+  input[type="text"].ng-valid, input[type="password"].ng-valid, input[type="email"].ng-valid, input[type="number"].ng-valid {
+    border-bottom: solid 2px #2ecc71; }
+  input[type="text"].ng-invalid, input[type="password"].ng-invalid, input[type="email"].ng-invalid, input[type="number"].ng-invalid {
+    border-bottom: solid 2px #e74c3c; }
+  input[type="text"].ng-pristine, input[type="password"].ng-pristine, input[type="email"].ng-pristine, input[type="number"].ng-pristine {
+    border-bottom: solid 2px #c9c9c9; }
+
+input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus, input[type="number"]:focus {
+  border-bottom: solid 2px #969696; }t
+
+.textBoxLogin {
+  width: 90% !important;
+  padding: 4px !important;
+  margin-top: 12px !important;
+  border-bottom: 0 !important;
+  font-size: 12px !important; }
+
+.fullWidth {
+  width: 100%;
+  height: 100%; }
+
+.buttonLogin {
+  margin-top: 12px !important;
+  padding: 7px !important;
+  font-size: 9px !important; }
+
+/**********    FRONT PAGE    **********/
+#content {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0;
+  background-color: #fff;
+  color: inherit;
+  width: 100%;
+  height: 100%; }
+
+.frontMargin {
+  margin-top: 40px; }
+
+/**********    PROFILE    **********/
+#profileBanner {
+  width: 100%;
+  display: block;
+  background-color: #799bac;
+  margin-top: 0px; }
+
+.profileHeader {
+  text-transform: uppercase;
+  font-size: 1.5em;
+  margin: 0px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  color: #fff; }
+
+.img-responsive {
+  margin: auto;
+  width: 100px; }
+
+.item {
+  background-color: #fff;
+  background: url(http://www.rokivo.com/wp-content/uploads/2015/04/italiansmartcities_preview2.jpg) no-repeat center center;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center top;
+  -webkit-transition: all 0.3s ease-in-out 0s;
+  transition: all 0.3s ease-in-out 0s;
+  border-radius: 4px; }
+
+.description {
+  z-index: 1;
+  padding: 0px;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  -webkit-transition: all 0.2s ease-in-out 0.1s;
+  transition: all 0.2s ease-in-out 0.1s; }
+
+.itemDescription {
+  color: #000;
+  font-size: 2.2rem;
+  line-height: 3rem;
+  margin-top: 0px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 0px; }
+
+.top {
+  background-color: #eee;
+  margin: 0 !important;
+  padding: 10px;
+  padding-bottom: 20px;
+  border-radius: 4px;
+  margin-top: -5px !important;
+  font-weight: bold; }
+
+.created {
+  margin-top: -45px;
+  padding: 20px;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  font-weight: bold; }
+
+.post {
+  height: 250px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: none;
+  position: relative;
+  border-radius: 5px;
+  margin-bottom: 30px; }
+  .post img {
+    width: 100%; }
+  .post .banner {
+    width: 100%;
+    position: absolute;
+    padding: 15px 15px 10px 15px;
+    left: 0;
+    bottom: 0;
+    background-color: #eee;
+    border-radius: 0px 0px 5px 5px; }
+    .post .banner .rating {
+      display: inline-block; }
+      .post .banner .rating .thumbs {
+        margin-right: 30px; }
+      .post .banner .rating .fa {
+        cursor: pointer; }
+    .post .banner .map {
+      position: absolute;
+    right: 15px;
+    top: 21px; }
+      .post .banner .map span {
+        margin-top: 5px;
+        color: #c0392b; }
+    .post .banner .date {
+      font-size: 12px; }
+    .post .banner .location {
+      display: none; }
+    .post .banner .show {
+      display: block; }
+
+    .post-details .itemDescription{
+      color:#000;
+      margin-bottom:10px;
+    }
+  .post-details img{
+      width:100%;
+    }
+    .post-details .description{
+      padding:5px 0px 5px 0px;
+    }
+    .post-details p.tags, .post-details p.date {
+      font-size:12px;
+    }
+
+
+/**********    FOOTER     **********/
+#footer {
+  width: 100%;
+  height: 100px;
+  display: block;
+  position: relative;
+  background-color: #fff; }
+
+.footer-text {
+  margin-top: 45px;
+  text-align: center;
+  color: #B9B9B9; }

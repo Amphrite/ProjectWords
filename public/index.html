@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>MemberCMS</title>
+        <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+        <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+        <script src='//maps.googleapis.com/maps/api/js?sensor=false'></script>
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+        <link href="css/style.css" rel="stylesheet">
+    </head>
+
+    <body ng-app="angular">
+    
+        <div ui-view></div>      
+
+    <footer ng-include="'templates/footer.html'"></footer>
+
+    <!-- BOWER COMPONENTS -->
+
+        <!-- //Jquery COMPONENTS -->
+        <script src="libs/jquery/dist/jquery.min.js"></script>
+
+        <!-- //Bootstrap COMPONENTS -->
+        <script src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+
+        <!-- //Angular & UI-Router -->
+        <script src="libs/angular/angular.js"></script> 
+        <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+        <!-- Angular Resource aka ngResource-->
+        <script src="libs/angular-resource/angular-resource.js"></script>
+
+        <!-- base64 upload -->
+        <script src="libs/angular-base64-upload/dist/angular-base64-upload.js"></script>
+
+        <!-- //ngGeolocation og Angular-Maps -->
+
+        <script src="libs/ngGeolocation/ngGeolocation.min.js"></script>
+        <script src="libs/lodash/lodash.min.js"></script>
+        <script src="libs/ngmap/build/scripts/ng-map.min.js"></script>
+        
+        <!-- Factorys/Services/Directives -->
+        <script src="js/factory/postService.factory.js"></script>
+
+        <!-- Controllers -->
+        <!--<script src="controllers/member.controllers.js"></script>-->
+        <script src="js/controllers/memberz.controller.js"></script>
+        <script src="js/controllers/post.controller.js"></script>
+        <script src="js/controllers/postDetails.controller.js"></script>
+        <!-- App --> 
+        <script src="js/app.js"></script>
+    </body>
+</html>
