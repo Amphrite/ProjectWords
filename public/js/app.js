@@ -17,5 +17,15 @@
   .state('frontpage', {
     url: '/frontpage',
     templateUrl: 'views/frontpage.html'
+  })
+
+  .state('register', {
+    url: '/register',
+    templateUrl: 'views/register.html'
+  })
+
+    .state('login', {
+    url: '/login',
+    templateUrl: 'views/login.html'
   });
 })

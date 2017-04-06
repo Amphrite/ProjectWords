@@ -49,17 +49,14 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //MODELS - Schemas. 
 var User = require('./app/models/users');
-var Post = require('./app/models/post');
 
 //ROUTES 
 var authenticate = require('./app/routes/authenticate')(passport);
 require('./app/routes/users.js')(router, mongoose, User);
-require('./app/routes/post.js')(router, mongoose, Post);
 require('./app/routes/authenticate.js')(passport);
 
 // api call
 app.use('/auth', authenticate);
-app.use('/posts', Post);
 app.use('/api', router);
 
 app.use(function (req, res) {
