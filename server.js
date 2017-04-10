@@ -52,12 +52,12 @@ var User = require('./app/models/users');
 
 //ROUTES 
 var authenticate = require('./app/routes/authenticate')(passport);
-require('./app/routes/users.js')(router, mongoose, User);
-require('./app/routes/authenticate.js')(passport);
+var routes = require('./app/routes/users.js')();
+
 
 // api call
 app.use('/auth', authenticate);
-app.use('/api', router);
+app.use('/api', routes);
 
 app.use(function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');

@@ -24,6 +24,10 @@
     templateUrl: 'views/register.html'
   })
 
+  .state('hej', {
+    url: '/hej',
+    templateUrl: 'views/hej.html'
+  })
     .state('login', {
     url: '/login',
     templateUrl: 'views/login.html'

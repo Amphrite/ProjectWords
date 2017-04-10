@@ -1,9 +1,14 @@
-module.exports = function(router, mongoose, User){
+var express = require('express');
+var router = express.Router();
+var User = require('./../models/users'); 
 
-router.route('/user')
+
+module.exports = function(){
+
+
 
 	// Opretter et medlem
-	.post(function(req, res) {
+	router.post('/user', function(req, res) {
 		
 		var user = new User();		
 		user.username =  req.body.username;  
@@ -20,7 +25,7 @@ router.route('/user')
 	})
 
 	// Henter ALLE medlemmer)
-	.get(function(req, res) {
+	router.get('/user',function(req, res) {
 		User.find(function(err, user) {
 			if (err)
 				res.send(err);
@@ -29,4 +34,7 @@ router.route('/user')
 		});
 	});
 
+	return router;
+
 }
+
