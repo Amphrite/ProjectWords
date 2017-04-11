@@ -18,7 +18,7 @@ module.exports = function(passport){
 		successRedirect: '/auth/success',
 		failureRedirect: '/auth/failure'
 	}));
-
+	
 	//sign up
 	router.post('/signup', passport.authenticate('signup', {
 		successRedirect: '/auth/success',

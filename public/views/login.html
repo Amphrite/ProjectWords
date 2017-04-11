@@ -1,54 +1,11 @@
-<div class="top-content">
-        	
-            <div class="inner-bg">
-                <div class="container">
-                   <div class="row pushRow">
-                        <div class="col-md-offset 4 col-md-4 col-md-offset-4 form-box">
-                        	<div class="form-top">
-                        		<div class="form-top text-center">
-                        			<h1>Login</h1>
-
-                                    <p>To be able to use the site you have, to have an account for us to be able to store your data.
-                                    Therefore either login or register to use our services!</p>
-                                    <br>
-                        		</div>
-                        		
-                            </div>
-                            <div class="form-bottom loginCenter">
-			                    <form action='auth/login', method='POST'>
-			                    	<div class="form-group">
-                                        <p>Enter username</p>
-			                    		<label class="sr-only" for="form-username">Username</label>
-			                        	<input type="text" name="username" data-type="text" placeholder="Username" required aria-label="Username">
-			                        </div>
-
-
-                                    
-			                        <div class="form-group">
-                                        <p>Enter password</p>
-			                        	<label class="sr-only" for="form-password">Password</label>
-			                        	<input type="password" name="password" data-type="text" placeholder="Password" required aria-label="password">
-			                        </div>
-                                    <div class="row">
-
-			                         
-
-			                        <input type="submit" value="Login" class="btn btn-default btnAdd">
-
-                                    
-                                    
-                                    <a href="/#/register"><button type="submit" class="btn btn-default btnAdd">Register</button></a>
-                                    
-                                    </div>
-
-			                    </form>
-		                    </div>
-                        </div>
-                    </div>
-                    
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-        </div>
+<form ng-submit="vm.onSubmit()">
+  <div class="form-group">
+    <label for="username">Username</label>
+    <input type="username" class="form-control" id="username" placeholder="Enter username" ng-model="vm.credentials.username">
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
+  </div>
+  <button type="submit" class="btn btn-default">Sign in!</button>
+</form>

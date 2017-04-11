@@ -10,6 +10,11 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand" href="#">MEAN-STACK dev env</a>
+
+                <ul class="nav navbar-nav navbar-right">
+                  <li ng-hide="navvm.isLoggedIn"><a href="login">Sign in</a></li>
+                  <li ng-show="navvm.isLoggedIn"><a href="profile">{{ navvm.currentUser.name }}</a></li>
+                </ul>
             </div>
         </div>
     </nav>

@@ -16,6 +16,7 @@ var mongoose     = require('mongoose');
 var mongodb      = require('mongodb');
 var db 	= require ('./config/db');
 
+
 //Connect til mongooseDB
 mongoose.connect(db.url);
 
@@ -47,17 +48,20 @@ app.use(passport.session());
 // static file location
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(function(req, res) {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 //MODELS - Schemas. 
-var User = require('./app/models/users');
+var User = require('./app/models/user');
 
 //ROUTES 
 var authenticate = require('./app/routes/authenticate')(passport);
-var routes = require('./app/routes/users.js')();
+var index = require('./app/routes/index.js')();
 
 
 // api call
 app.use('/auth', authenticate);
-app.use('/api', routes);
 
 app.use(function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -88,6 +92,16 @@ app.use(function (err, req, res, next) {
     error: err
   });
 });
+
+// error handlers
+// Catch unauthorised errors
+app.use(function (err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401);
+    res.json({"message" : err.name + ": " + err.message});
+  }
+});
+
 
 app.get('*', function (req, res) {
   res.sendfile('./public/index.html');

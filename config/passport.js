@@ -1,9 +1,9 @@
-
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var expressValidator = require('express-validator');
+var mongoose = require('mongoose');
 
-var User = require('../app/models/users');
+var User = require('../app/models/user');
 var bCrypt = require('bcrypt-nodejs');
 
 module.exports = function(passport){
@@ -37,7 +37,7 @@ module.exports = function(passport){
 						return done(null, false);                 
 					}
 					// User exists but wrong password, log the error 
-					if (!isValidPassword(user, password)){
+					if (!user.validPassword(password)){
 						console.log('Invalid Password');
 						return done(null, false); // redirect back to login page
 					}
@@ -72,9 +72,6 @@ module.exports = function(passport){
 					// set the user's local credentials
 					newUser.username  = username;
 					newUser.password  = createHash(password);
-					newUser.firstName = req.body.firstName;
-					newUser.lastName  = req.body.lastName;
-					newUser.email     = req.body.email;
 
 					// save the user
 					newUser.save(function(err) {
