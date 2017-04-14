@@ -1,23 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
-        <base href="/">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>MEAN Stack boiler plate</title>
-        <link href="libs/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
-        <!-- Custom styles for this template -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-        <link href="css/style.css" rel="stylesheet">
+        <title>Title</title>
+
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="description" content="" />
+        <meta name="keywords" content="" />
+        <meta name="language" content="dk" />
+        <meta name="author" content="name, email@email.com" />
+        <meta name="robots" content="index, follow" />
+
+        <link rel="stylesheet" href="libs/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,700" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+        <link rel="stylesheet" href="css/style.css" type="text/css" />
+
+        <link rel="canonical"  href="http://www.site.com/" />
+        <link rel="shortlink" href="http://www.site.com/" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+        <!--[if IE]>
+            <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <![endif]-->
     </head>
 
-    <body ng-app="meanApp">
-
-            <div ng-view></div>      
-
-    
-    <!-- NPM Packages -->
+    <body ng-app="app">
+            <ui-view></ui-view>        
 
         <!-- //Jquery COMPONENTS -->
         <script src="libs/jquery/dist/jquery.min.js"></script>
@@ -28,21 +43,12 @@
         <!-- //Angular & UI-Router -->
         <script src="libs/angular/angular.js"></script> 
         <script src="libs/angular-ui-router/release/angular-ui-router.min.js"></script>
-        <script src="libs/angular-route/angular-route.min.js"></script>
-
-        <!-- //ngAnimate -->
-        <script src="libs/angular-animate/angular-animate.min.js"></script>
         
         <!-- Include Factorys/Services/Directives here -->
-        <script src="common/directives/navigation/navigation.controller.js"></script>
-        <script src="common/services/authentication.service.js"></script>
-        <script src="common/services/data.service.js"></script>
+        <script src="js/services/profile.js"></script>
 
         <!-- Include controllers here -->
-        <script src="common/controllers/frontpageCtrl.js"></script>
-        <script src="common/controllers/hejCtrl.js"></script>
-        <script src="common/controllers/loginCtrl.js"></script>
-        <script src="common/controllers/registerCtrl.js"></script>
+        <script src="js/controllers/profile.js"></script>
 
         <!-- MAIN App file --> 
         <script src="js/app.js"></script>

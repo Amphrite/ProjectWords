@@ -1,4 +1,6 @@
-// Base Setup for the server - NODE.JS plugins
+'use strict';
+
+//Base server setup for REST API 
 var express = require('express');
 var expressSession = require('express-session');
 var expressValidator = require('express-validator');
@@ -9,22 +11,21 @@ var cookieParser = require('cookie-parser');
 var path = require('path');
 var session = require('express-session');
 var logger = require('morgan');
-var bCrypt = require('bcrypt-nodejs');
 
-//MongoDB
-var mongoose     = require('mongoose');
-var mongodb      = require('mongodb');
-var db 	= require ('./config/db');
+//Server setup
+var mongoose = require('mongoose');
+var db = require('./config/db');
 
-
-//Connect til mongooseDB
+// Connect to db
 mongoose.connect(db.url);
 
-//Passport config
+// Passport configuration
 require('./config/passport')(passport);
 
-//App
-var app          = express();
+// Initial app setup, express and port
+var app = express();
+var http = require('http');
+var server = http.createServer(app);
 var router = express.Router();
 var port = process.env.PORT || 8000;
 
@@ -45,23 +46,20 @@ app.use(expressSession({
 app.use(passport.initialize());
 app.use(passport.session());
 
-// static file location
+// Static file location
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use(function(req, res) {
-  res.sendFile(path.join(__dirname, 'public', 'index.html'));
-});
-
-//MODELS - Schemas. 
+// Models
 var User = require('./app/models/user');
 
-//ROUTES 
-var authenticate = require('./app/routes/authenticate')(passport);
-var index = require('./app/routes/index.js')();
+// Routes
+var apiRoutes = require('./app/routes/api.route.js')();
+var Routes = require('./app/routes/routes.js')(passport);
+var appRoutes = require('./app/routes/app.route.js')();
 
-
-// api call
-app.use('/auth', authenticate);
+app.use('/api', apiRoutes);
+app.use('/auth', Routes);
+app.use('/app', appRoutes);
 
 app.use(function (req, res) {
   res.header('Access-Control-Allow-Origin', '*');
@@ -93,21 +91,11 @@ app.use(function (err, req, res, next) {
   });
 });
 
-// error handlers
-// Catch unauthorised errors
-app.use(function (err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    res.status(401);
-    res.json({"message" : err.name + ": " + err.message});
-  }
-});
-
-
 app.get('*', function (req, res) {
   res.sendfile('./public/index.html');
 });
 
-app.listen(port);
+server.listen(port);
 console.log('Server running on port ' + port);
 
-exports = module.exports = app;
+exports = module.exports = app; 

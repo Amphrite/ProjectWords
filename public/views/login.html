@@ -1,11 +1,16 @@
-<form ng-submit="vm.onSubmit()">
-  <div class="form-group">
-    <label for="username">Username</label>
-    <input type="username" class="form-control" id="username" placeholder="Enter username" ng-model="vm.credentials.username">
+<section id="content">
+  <div class="container">
+    <h2>Login</h2>
+    <form action="/auth/login" method="POST">
+      <div class="control-group">
+        <label>Email</label>
+        <input type="email" data-type="text" name="email" required aria-label="Email">
+      </div>
+      <div class="control-group">
+        <label>Password</label>
+        <input type="password" data-type="text" name="password" required aria-label="Password">
+      </div>
+      <button type="submit" class="my-button">Login</button>
+    </form>
   </div>
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Password" ng-model="vm.credentials.password">
-  </div>
-  <button type="submit" class="btn btn-default">Sign in!</button>
-</form>
+</section>
