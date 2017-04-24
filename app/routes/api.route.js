@@ -11,7 +11,7 @@ var isAuthenticated = function (req, res, next) {
     }
     // if the user is not authenticated then redirect him to the login page
 
-    res.json(403, "you're not authenticated");
+    res.status(403, "you're not authenticated");
 };
 
 module.exports = function () {

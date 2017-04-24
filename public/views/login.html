@@ -1,16 +1,18 @@
 <section id="content">
-  <div class="container">
+  <div class="container col-md-offset-4 col-md-4">
     <h2>Login</h2>
     <form action="/auth/login" method="POST">
       <div class="control-group">
         <label>Email</label>
-        <input type="email" data-type="text" name="email" required aria-label="Email">
+        <input class="form-control" type="email" data-type="text" name="email" required aria-label="Email" placeholder="Email">
       </div>
       <div class="control-group">
+        <br>
         <label>Password</label>
-        <input type="password" data-type="text" name="password" required aria-label="Password">
+        <input class="form-control" type="password" data-type="text" name="password" required aria-label="Password" placeholder="Password">
       </div>
-      <button type="submit" class="my-button">Login</button>
+      <br>
+      <button class="btn" type="submit" class="my-button">Login</button>
     </form>
   </div>
 </section>
