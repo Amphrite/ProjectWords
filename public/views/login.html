@@ -2,18 +2,24 @@
 <br>
 <br>
 <br>
-<div class="container">
-
-    <form name="form" action="/auth/login" method="POST" role="form">
-        <div class="control-group top-email">
-            <input type="email" placeholder="username" class="login-input login-user" data-type="text" name="email" aria-label="Email" required />
+<div class="container form-group">
+    <div class="row">
+        <div class="col-md-offset-4 col-md-6">
+            <form name="form" action="/auth/login" method="POST" role="form">
+                <div class="form-group control-group top-email">
+                    <input type="email" placeholder="username" class="form-control login-input login-user" data-type="text" name="email" aria-label="Email"
+                        required />
+                </div>
+                <div class="control-group top-email">
+                    <input type="password" placeholder="password" class="form-control login-input login-pass" data-type="text" name="password"
+                        aria-label="Password" required />
+                </div>
+                <a href="#">Forgot password?</a>
+                <a class="margin-top-minus" href="/#/signup">Need an account?</a>
+                <div class="row text-center">
+                <button class="btn btn-primary" type="submit">Login</button>
+                </div>
+            </form>
         </div>
-        <div class="control-group top-email">
-            <input type="password" placeholder="password" class="login-input login-pass" data-type="text" name="password" aria-label="Password" required />
-        </div>
-        <a href="#">Forgot password?</a>
-        <a class="margin-top-minus" href="/#/signup">Need an account?</a>
-        <button type="submit">Login</button>
-    </form>
+    </div>
 </div>
-
