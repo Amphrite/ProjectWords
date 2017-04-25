@@ -6,11 +6,12 @@ module.exports = function (passport) {
 
     // GLOBAL  
     router.get('/success', function (req, res) {
-        return res.redirect('/#/profile');
+        return  res.redirect('/#/profile');
+        
     });
 
     router.get('/failure', function (req, res) {
-        return res.redirect('/#/login');
+        return res.send({ state: 'failure', user: null, message: 'Invalid username or password' });
     });
 
     router.post('/signup', passport.authenticate('signup', {

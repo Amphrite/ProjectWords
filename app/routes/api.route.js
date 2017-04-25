@@ -2,23 +2,7 @@ var express = require('express');
 var router = express.Router();
 var User = require('./../models/user');
 
-var isAuthenticated = function (req, res, next) {
-    // if user is authenticated in the session, call the next() to call the next request handler
-    // Passport adds this method to request object. A middleware is allowed to add properties to
-
-    if (req.isAuthenticated()) {
-        return next();
-    }
-    // if the user is not authenticated then redirect him to the login page
-
-    res.status(403, "you're not authenticated");
-};
-
 module.exports = function () {
-    // Every time there's a request, this will check if the user is logged in
-    router.all('*', isAuthenticated, function (req, res, next) {
-        next();
-    });
 
     // Get all
     router.get('/users', function (req, res) {
@@ -41,6 +25,7 @@ module.exports = function () {
         });
     });
 
+    
     router.get('/current', function (req, res) {
         User.findById(req.user.id, function (err, currentUser) {
             if (err) {
@@ -50,6 +35,8 @@ module.exports = function () {
         });
     });
 
+
+
     // Update data
     router.put('/users/:id', function (req, res) {
         User.findById(req.params.id, function (err, user) {
@@ -57,7 +44,7 @@ module.exports = function () {
             if (err) {
                 return res.send(err);
             }
-            var email = req.body.email;
+            user.email = req.body.email;
 
             user.save(function (err, user) {
                 if (err) {

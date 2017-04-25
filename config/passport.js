@@ -1,7 +1,6 @@
 var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 var expressValidator = require('express-validator');
-
 var User = require('../app/models/user');
 
 module.exports = function (passport) {
@@ -79,7 +78,6 @@ module.exports = function (passport) {
                             // create the user
                             var newUser = new User();
 
-                            // set the user's local credentials
                             newUser.email = email;
                             newUser.password = newUser.generateHash(password);
 
@@ -98,5 +96,6 @@ module.exports = function (passport) {
                     return done(null, req.user);
                 }
             });
-        }));
+        })
+    );
 };

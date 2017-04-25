@@ -15,7 +15,7 @@ var app = angular.module('app', [
         url: '/',
         templateUrl: 'views/frontpage.html'
       })
-
+    
       .state('login', {
         url: '/login',
         templateUrl: 'views/login.html'
