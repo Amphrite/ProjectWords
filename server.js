@@ -25,7 +25,7 @@ require('./config/passport')(passport);
 // Initial app setup, express and port
 var app = express();
 var router = express.Router();
-var port = process.env.PORT || 9100;
+var port = process.env.PORT || 8000;
 
 //App middleware - enable logger, session, body and cookie-parser
 app.use(logger('dev'));

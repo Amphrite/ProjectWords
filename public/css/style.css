@@ -1,16 +1,7 @@
-.navbarMiddle{
-margin-top: 300px;
-font-size: 35px;
-}
-
-.navbar-default {
-    background-color: rgba(0, 0, 0, 0.85) !important;
-    border: 0;
-    text-align:center;
-}
-
+y
 body{
-    background-image: url(/imgs/books-wallpaper-2.jpg);
+    /*background-image: url(/imgs/books-wallpaper-2.jpg);*/
+    background-color:grey
 }
 
 .barSolid {

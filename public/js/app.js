@@ -31,4 +31,6 @@ var app = angular.module('app', [
         templateUrl: 'views/profile.html',
         controller: 'ProfileController'
       });
+
+       $locationProvider.html5Mode(true);
   });
