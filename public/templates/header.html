@@ -1,5 +1,17 @@
 <nav class="navbar navbar-default sidebar" role="navigation">
   <div class="container-fluid">
+      <div class="row">
+          <!--<div class="login-header"><a href="/login"><p>Login</p></a></div>-->
+          
+
+          <ul class="login-header" ng-controller="DickController">
+    <li>
+        <a href ng-if="$root.authenticated" ng-click="dick()"><b>Logout</b></a>
+        <a href="/login" ng-if="!$root.authenticated"  ><b>Login</b></a>
+    </li>
+</ul>
+
+      </div>
     <a class="navbar-brand" href="#">Brand</a>
     <div class="navbar-header">
 
@@ -26,7 +38,7 @@
           </ul>
         </li>
         <li><a href="/login">Results<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-        <li><a href="#">Tags<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+        <li><a href="/profile">Comments<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
       </ul>
     </div>
   </div>
