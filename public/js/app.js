@@ -4,7 +4,8 @@ var app = angular.module('app', [
   'ui.router',
   'profile.controller',
   'profile.service',
-  'dick.controller'
+  'logout.controller',
+  'answer.controller'
 ])
 
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -33,10 +34,11 @@ var app = angular.module('app', [
         templateUrl: 'views/tasktest.html',
         controller: 'ProfileController'
       })
-      .state('tasktes2t', {
+      .state('tasktest2', {
         url: '/tasktest2',
         templateUrl: 'views/tasktest2.html',
-        controller: 'ProfileController'
+        controller: 'ProfileController',
+        controller: 'answerCtrl'
       })
        
       .state('profile', {

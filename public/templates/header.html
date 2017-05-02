@@ -4,9 +4,9 @@
           <!--<div class="login-header"><a href="/login"><p>Login</p></a></div>-->
           
 
-          <ul class="login-header" ng-controller="DickController">
+          <ul class="login-header" ng-controller="logoutController">
     <li>
-        <a href ng-if="$root.authenticated" ng-click="dick()"><b>Logout</b></a>
+        <a href ng-if="$root.authenticated" ng-click="logout()"><b>Logout</b></a>
         <a href="/login" ng-if="!$root.authenticated"  ><b>Login</b></a>
     </li>
 </ul>
@@ -37,8 +37,8 @@
             <li><a href="">Add new Task</a></li>
           </ul>
         </li>
-        <li><a href="/login">Results<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-        <li><a href="/profile">Comments<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+        <li><a href="">Results<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+        <li><a href="">Comments<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
       </ul>
     </div>
   </div>

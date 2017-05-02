@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var User = require('./../models/user');
+var Answer = require('./../models/answers');
 
 module.exports = function () {
 
@@ -64,6 +65,24 @@ module.exports = function () {
             } else {
                 res.json({ message: 'Successfully deleted' });
             }
+        });
+    });
+
+    // ** USER INPUT ** //
+    // router post af user input til tasks
+
+    router.post('/answer', function (req,res) {
+        var answer =req.body.answers;
+        console.log(req.body);
+        var newAnswer = new Answer ({
+            answer: answer
+        });
+
+        newAnswer.save(function(err){
+            if (err) {
+                return res.send(err);
+            }
+            return res.json(newAnswer);
         });
     });
 

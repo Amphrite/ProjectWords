@@ -1,14 +1,14 @@
 'use strict';
 
-var app = angular.module('dick.controller', []);
+var app = angular.module('logout.controller', []);
 
-app.controller('DickController', function ($http, $location, $scope, $rootScope) {
-    console.log("Dick");
+app.controller('logoutController', function ($http, $location, $scope, $rootScope) {
+    
     console.log($rootScope.authenticated);
     console.log($scope.data);
     
-    $scope.dick = function(){
-        console.log("bøz");
+    $scope.logout = function(){
+        
   
 
             $http({
@@ -18,7 +18,7 @@ app.controller('DickController', function ($http, $location, $scope, $rootScope)
                     console.log("successful logout?");
                     $location.path('/frontpage');
                 }, function errorCallback(response) {
-                console.log("Lort");
+                
         });
     };
 });

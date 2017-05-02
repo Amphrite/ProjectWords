@@ -3,7 +3,7 @@
 var app = angular.module('profile.controller', []);
 
 app.controller('ProfileController', function ($scope, $rootScope, $location, profileService) {
-    console.log("hejsa");
+    console.log("profilectrl");
     profileService.getCurrentUser().then(function (data) {
         $scope.data = data;
         $rootScope.authenticated = true;

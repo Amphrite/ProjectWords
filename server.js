@@ -49,6 +49,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 // Models
 var User = require('./app/models/user');
+var Task = require('./app/models/tasks');
+var Answer = require('./app/models/answers');
 
 // Routes
 var apiRoutes = require('./app/routes/api.route.js')();
@@ -91,6 +93,11 @@ app.use(function (err, req, res, next) {
 
 app.get('*', function (req, res) {
   res.sendfile('./public/index.html');
+});
+
+app.post('/answer', function(req, res) {
+    console.log(req.body.answer);
+    res.end();
 });
 
 app.listen(port);
