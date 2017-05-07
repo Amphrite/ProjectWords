@@ -13,7 +13,7 @@ app.controller('ProfileController', function ($scope, $rootScope, $location, pro
         $rootScope.authenticated = false;
 
         console.log(err);
-        $location.path('/frontpage');
+        $location.path('/');
 
     });
    

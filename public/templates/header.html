@@ -7,7 +7,7 @@
           <ul class="login-header" ng-controller="logoutController">
     <li>
         <a href ng-if="$root.authenticated" ng-click="logout()"><b>Logout</b></a>
-        <a href="/login" ng-if="!$root.authenticated"  ><b>Login</b></a>
+        <a href="/login" ng-if="!$root.authenticated"><b>Login</b></a>
     </li>
 </ul>
 
@@ -38,7 +38,13 @@
           </ul>
         </li>
         <li><a href="">Results<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-        <li><a href="">Comments<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+        <li><a href="/profile">Comments<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+        <li><a href="/signup">Signup<span  class="pull-right hidden-xs showopacity glyphicon "></span></a></li>
+
+         <li ng-controller="ProfileController" ng-if="data.role == 'Teacher'"><a href="/admin">Teacher<span  class="pull-right hidden-xs showopacity glyphicon"></span></a></li>
+         
+
+
       </ul>
     </div>
   </div>

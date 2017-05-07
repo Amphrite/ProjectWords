@@ -2,6 +2,8 @@ var express = require('express');
 var router = express.Router();
 var User = require('./../models/user');
 var Answer = require('./../models/answers');
+var Task = require('./../models/tasks');
+
 
 module.exports = function () {
 
@@ -83,6 +85,25 @@ module.exports = function () {
                 return res.send(err);
             }
             return res.json(newAnswer);
+        });
+    });
+
+
+       router.post('/task', function (req,res) {
+        var task = req.body.word;
+        var taskDesc = req.body.wordDesc;
+        console.log(req.body);
+        var newTask = new Task ({
+            word: task,
+            wordDesc: taskDesc
+            
+        });
+
+        newTask.save(function(err){
+            if (err) {
+                return res.send(err);
+            }
+            return res.json(newTask);
         });
     });
 

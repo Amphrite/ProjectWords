@@ -6,7 +6,7 @@ module.exports = function (passport) {
 
     // GLOBAL  
     router.get('/success', function (req, res) {
-        return  res.redirect('/#/profile');
+        return  res.redirect('/#/frontpage');
         
     });
 

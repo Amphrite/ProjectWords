@@ -5,7 +5,8 @@ var app = angular.module('app', [
   'profile.controller',
   'profile.service',
   'logout.controller',
-  'answer.controller'
+  'answer.controller',
+  'task.controller'
 ])
 
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -14,12 +15,13 @@ var app = angular.module('app', [
 
     $stateProvider
       .state('frontpage', {
-        url: '/',
+        url: '/frontpage',
+        controller: 'ProfileController',
         templateUrl: 'views/frontpage.html'
       })
     
       .state('login', {
-        url: '/login',
+        url: '/',
         templateUrl: 'views/login.html'
       })
 
@@ -34,6 +36,7 @@ var app = angular.module('app', [
         templateUrl: 'views/tasktest.html',
         controller: 'ProfileController'
       })
+      
       .state('tasktest2', {
         url: '/tasktest2',
         templateUrl: 'views/tasktest2.html',
@@ -45,7 +48,15 @@ var app = angular.module('app', [
         url: '/profile',
         templateUrl: 'views/profile.html',
         controller: 'ProfileController'
+      })
+
+      .state('admin', {
+        url: '/admin',
+        templateUrl: 'views/admin.html',
+        controller: 'taskCtrl'
       });
+
+
 
        $locationProvider.html5Mode(true);
   });

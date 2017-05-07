@@ -1,0 +1,13 @@
+<header ng-include="'templates/header.html'"></header>
+
+<section>
+    <div class="container">
+        <div class="row">
+            <form ng-submit="task()">
+                <input type="word" class="form-control" rows="3" ng-model="formData.word"></input>
+                <input type="wordDescription" class="form-control" rows="3" ng-model="formData.wordDesc"></input>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</section>

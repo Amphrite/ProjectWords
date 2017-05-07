@@ -5,8 +5,10 @@ var bcrypt   = require('bcrypt-nodejs');
 
 var userSchema = mongoose.Schema({
     email        : {type: String, default: ""},
-    password     : {type: String, default: ""}
+    password     : {type: String, default: ""},
+    role         : {type: String, default: ""}
 });
+
 
 userSchema.methods.generateHash = function (Password) {
     return bcrypt.hashSync(Password, bcrypt.genSaltSync(8), null);
