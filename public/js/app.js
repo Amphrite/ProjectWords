@@ -4,6 +4,7 @@ var app = angular.module('app', [
   'ui.router',
   'profile.controller',
   'profile.service',
+  'task.service',
   'logout.controller',
   'answer.controller',
   'task.controller'
@@ -34,14 +35,14 @@ var app = angular.module('app', [
       .state('tasktest', {
         url: '/tasktest',
         templateUrl: 'views/tasktest.html',
-        controller: 'ProfileController'
+        controller: 'taskCtrl'
       })
       
       .state('tasktest2', {
         url: '/tasktest2',
         templateUrl: 'views/tasktest2.html',
         controller: 'ProfileController',
-        controller: 'answerCtrl'
+        controller: 'answerCtrl',
       })
        
       .state('profile', {

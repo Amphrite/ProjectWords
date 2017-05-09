@@ -99,11 +99,23 @@ module.exports = function () {
             
         });
 
+
+
         newTask.save(function(err){
             if (err) {
                 return res.send(err);
             }
             return res.json(newTask);
+        });
+    });
+
+    router.get('/task', function (req, res) {
+        Task.find( function (err, currentTask) {
+            console.log("router.task");
+            if (err) {
+                res.send(500, err);
+            }
+            res.json(200, currentTask);
         });
     });
 
