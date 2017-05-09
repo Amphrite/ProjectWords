@@ -1,15 +1,32 @@
 <header ng-include="'templates/header.html'"></header>
 
-<section>
+<section id="content">
     <div class="container">
-        <div class="row">
-            <div class="col-md-6 col-md-offset-4">
-                <form ng-submit="sub()">
-                    <input type="word" class="form-control" rows="3" ng-model="formData.word"></input>
-                    <input type="wordDescription" class="form-control" rows="3" ng-model="formData.wordDesc"></input>
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
+        <div class="panel panel-default vcenter">
+            <div class="panel-heading">
+                <div class="panel-title"></div>
             </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="row">
+                    <div class="panel-body">
+                            <div>
+                                <h2>Task name</h2>
+                                <input type="taskName" class="form-control" rows="3" ng-model="formData.taskName"></input>
+                            </div>
+                        
+                            <div>
+                                <h2>Insert Word</h2>
+                                <input type="word" class="form-control" rows="3" ng-model="formData.word"></input>
+                            <div>
+
+                            <div>
+                                <hr>
+                                <h2>Insert Word Description</h2>
+                                <textarea type="wordDescription" class="form-control" rows="3" ng-model="formData.wordDesc"></textarea>
+                            </div>
+                    </div>
+                 </div>
+             </div>
         </div>
     </div>
 </section>

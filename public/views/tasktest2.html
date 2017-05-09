@@ -2,47 +2,50 @@
 
 <section id="content">
     <div class="container">
-<div class="panel panel-default vcenter">
-    <div class="panel-heading">
-        <div class="panel-title">
-            <div class="row">
-                <div class="col-md-2 bluee">Danish</div>
-                <div class="title-middle col-md-offset-2 col-md-4">Danish</div>
-                <div class="title-right col-md-4">Danish</div>
-            </div>
-        </div>
-    </div>
-    <div id="collapse1" class="panel-collapse collapse in">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="panel-body">
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Atqui, inquam, Cato, si istud optinueris, traducas me ad te totum
-                        licebit. At hoc in eo M. Quae cum dixisset, finem ille. Est, ut dicis, inquam. Duo Reges: constructio
-                        interrete. Isto modo ne improbos quidem, si essent boni viri.
-                    </p>
-
-
-                    <div class="form-group">
-                        <label for="comment">Solve the Task in the Field Below:</label>
-                        <form ng-submit="sub()">
-                            <input type="text" name="answer" ng-model="formData.answers" placeholder="Write your sentence" />
-                            <button type="submit" class="btn btn-primary">Submit</button>
-                        </form>
+        <div class="panel panel-default vcenter">
+            <div class="panel-heading">
+                <div class="panel-title">
+                    <div class="row">
+                        <div class="col-md-2 bluee">Danish</div>
+                        <div class="title-middle col-md-offset-2 col-md-4">{{tasks.taskName}}</div>
+                        <div class="title-right col-md-4">Danish</div>
                     </div>
-
-
-                </div>
-                <div class="panel-footer">
-                    <a class="btn btn-warning" href="">Next</a>
-
-
                 </div>
             </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="panel-body">
+
+                            <p class="wordDesc">Description:</p>
+                            <p>
+                            {{tasks.wordDesc}}
+                            </p>
+
+
+
+                            <div class="form-group">
+                                <hr>
+                                <h3>{{tasks.word}} Means?</h3>
+                                <label for="comment">Solve the Task in the Field Below:</label>
+                                <form ng-submit="sub()">
+                                    <textarea type="text" name="answer" class="col-md-12" rows="5" ng-model="formData.answers" placeholder="Write your sentence"
+                                    />
+                                </form>
+                            </div>
+
+
+                        </div>
+                        <div class="panel-footer">
+                            <a type="submit" class="btn btn-primary">Next</a>
+
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
-    
     </div>
-</div>
-</div>
 
 </section>

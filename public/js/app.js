@@ -39,10 +39,9 @@ var app = angular.module('app', [
       })
       
       .state('tasktest2', {
-        url: '/tasktest2',
+        url: '/tasktest2/:taskId',
         templateUrl: 'views/tasktest2.html',
-        controller: 'ProfileController',
-        controller: 'answerCtrl',
+        controller: 'answerCtrl'
       })
        
       .state('profile', {

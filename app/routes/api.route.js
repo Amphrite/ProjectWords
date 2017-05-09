@@ -92,10 +92,12 @@ module.exports = function () {
        router.post('/task', function (req,res) {
         var task = req.body.word;
         var taskDesc = req.body.wordDesc;
+        var taskName = req.body.taskName;
         console.log(req.body);
         var newTask = new Task ({
             word: task,
-            wordDesc: taskDesc
+            wordDesc: taskDesc,
+            taskName: taskName
             
         });
 
@@ -118,6 +120,20 @@ module.exports = function () {
             res.json(200, currentTask);
         });
     });
+
+        // Get by id
+    router.get('/task/:id', function (req, res) {
+        console.log("Task Get ID");
+        console.log(req.params.id);
+        Task.findById(req.params.id, function (err, task) {
+            console.log(req.params.id);
+            if (err) {
+                res.send(500, err);
+            }
+            res.json(200, task);
+        });
+    });
+
 
     return router;
 }

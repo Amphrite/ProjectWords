@@ -2,8 +2,9 @@
 
 var app = angular.module('task.controller', []);
 
+
 app.controller('taskCtrl', function($scope, $http, taskService) {   
-    
+
     // GET FUNCTION //
     console.log("taskctrl");
     taskService.getCurrentTasks().then(function (data) {
@@ -11,7 +12,7 @@ app.controller('taskCtrl', function($scope, $http, taskService) {
         console.log(data.word);
     }),
 
-        // // POST FUNCTION //
+        //POST FUNCTION//
     $scope.sub = function() {
     taskService.postTask($scope.formData).then(function (data){
        if(data) {
@@ -22,6 +23,8 @@ app.controller('taskCtrl', function($scope, $http, taskService) {
        }
     })}
 });
+
+
 
 //  $http.post('/api/task', $scope.formData)
 //         .success(function(data) {
