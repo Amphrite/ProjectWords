@@ -6,45 +6,39 @@
 
           <ul class="login-header" ng-controller="logoutController">
     <li>
-        <a href ng-if="$root.authenticated" ng-click="logout()"><b>Logout</b></a>
-        <a href="/login" ng-if="!$root.authenticated"><b>Login</b></a>
+        <a href ng-if="$root.authenticated" class="loginLogout" ng-click="logout()"><b class="loginLogout">Logout</b></a>
+        <a href="/login" ng-if="!$root.authenticated"><b class="loginLogout">Login</b></a>
     </li>
 </ul>
 
       </div>
     <a class="navbar-brand" href="#">Brand</a>
-    <div class="navbar-header">
+      <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+      </div>
 
-      
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-sidebar-navbar-collapse-1">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
+    
     <div class="collapse navbar-collapse" id="bs-sidebar-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li class=""><a href="/frontpage">Home<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
-        <li class="dropdown">
-          <a href="" class="dropdown-toggle" data-toggle="dropdown">Classes <span class="caret"></span><span class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
-          <ul class="dropdown-menu forAnimate" role="menu">
-            <li><a href="">Danish</a></li>
-            <li><a href="">English</a></li>
-            <li><a href="">Russian</a></li>
-            <li class="divider"></li>
-            
-            <li><a href="">Add new Task</a></li>
+         <ul class="nav nav-pills nav-stacked left-menu" id="stacked-menu">
+           <li class=""><a href="/frontpage">Home<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-home"></span></a></li>
+        <li>
+          <a href="/frontpage" data-target="#item1" data-toggle="collapse" data-parent="">Classes<span class="pull-right hidden-xs showopacity glyphicon glyphicon-user"></span></a>
+          <ul class="aColor nav nav-stacked collapse" id="item1">
+            <li><a href="#">Test</a></li>
+            <li><a href="#">Test</a></li>
           </ul>
         </li>
-        <li><a href="">Results<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
-        <li><a href="/profile">Comments<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
-        <li><a href="/signup">Signup<span  class="pull-right hidden-xs showopacity glyphicon "></span></a></li>
-
-         <li ng-controller="ProfileController" ng-if="data.role == 'Teacher'"><a href="/admin">Teacher<span  class="pull-right hidden-xs showopacity glyphicon"></span></a></li>
-         
-
-
+                    <li><a href="">Results<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-th-list"></span></a></li>
+                    <li><a href="/profile">Profil<span  class="pull-right hidden-xs showopacity glyphicon glyphicon-tags"></span></a></li>
+                    <li><a href="/signup">Signup<span  class="pull-right hidden-xs showopacity glyphicon "></span></a></li>
+                    <li ng-controller="ProfileController" ng-if="data.role == 'Teacher'"><a href="/admin">Teacher<span  class="pull-right hidden-xs showopacity glyphicon"></span></a></li>
+           
       </ul>
     </div>
   </div>

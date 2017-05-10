@@ -1,17 +1,13 @@
 <header ng-include="'templates/header.html'"></header>
-<br>
-<br>
-<br>
-<a href="auth/logout">Logout2</a>
-
 <section>
     <div class="container">
-        <div class="row">   
-<h1>Profile page</h1>
-
-{{data.email}}
-
-{{data.role}}
+        <div class="row vcenter">   
+        <div class="col-md-offset-3 col-md-6">
+        <div class="panel panel-default">
+        <div class="panel-heading">Velkommen {{data.email}}</div>
+        <div class="panel-body">Du er logget in som : {{data.role}}</div>
+        </div>
+        </div>
 </div>
 </div>  
 </section>
