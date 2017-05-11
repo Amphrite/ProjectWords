@@ -54,6 +54,15 @@ body > ui-view > header > nav > div > div.row > ul > li > a{
     margin-top: 15px;
 }
 
+.padding {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.btnMargin {
+    margin-right: 15px;
+    margin-top: 15px;
+}
 .col-centered {
     display: block;
     margin: 0, auto;

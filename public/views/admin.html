@@ -1,32 +1,50 @@
 <header ng-include="'templates/header.html'"></header>
 
-<section id="content">
-    <div class="container">
-        <div class="panel panel-default vcenter">
-            <div class="panel-heading">
-                <div class="panel-title"></div>
-            </div>
-            <div id="collapse1" class="panel-collapse collapse in">
-                <div class="row">
-                    <div class="panel-body">
-                            <div>
-                                <h2>Task name</h2>
-                                <input type="taskName" class="form-control" rows="3" ng-model="formData.taskName"></input>
-                            </div>
-                        
-                            <div>
-                                <h2>Insert Word</h2>
-                                <input type="word" class="form-control" rows="3" ng-model="formData.word"></input>
-                            <div>
-
-                            <div>
-                                <hr>
-                                <h2>Insert Word Description</h2>
-                                <textarea type="wordDescription" class="form-control" rows="3" ng-model="formData.wordDesc"></textarea>
+<form ng-submit="sub()">
+    <section id="content">
+        <div class="container">
+            <div class="panel panel-default vcenter">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <div class="row">
+                            <div class="col-md-4 title-left"> Administrator side </div>
+                            <div class="col-md-4 title-middle"> Ny opgave </div>
+                            <div class="col-md-4 title-right"> Dansk</div>
                             </div>
                     </div>
-                 </div>
-             </div>
-        </div>
-    </div>
-</section>
+                </div>
+                <div id="collapse1" class="panel-collapse collapse in">
+                    <div class="row">
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-4 padding">
+                                    <h2>Navn på opgave</h2>
+                                    <input type="taskName" class="form-control" rows="3" ng-model="formData.taskName"></input>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-4 padding">
+                                    <h2>Indsæt ord</h2>
+                                    <input type="word" class="form-control" rows="3" ng-model="formData.word"></input>
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-md-12 padding">
+                                    <h2>Indsæt ordbeskrivelse</h2>
+                                    <textarea type="wordDescription" class="form-control" rows="3" ng-model="formData.wordDesc"></textarea>
+                                </div>
+                            </div>
+                        
+                        <div class="row">
+                            <div class="col-md-offset-10 col-md-1 pull-right btnMargin">
+                                <button type="submit" class="btn btn-default btn-primary">Send</button>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </section>
+</form>
