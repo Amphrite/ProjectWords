@@ -90,20 +90,15 @@ module.exports = function () {
 
 
        router.post('/task', function (req,res) {
-           console.log(req.body.formData);
-           console.log("api");
-           console.log(req.body.wordDesc);
-        var task = req.body.word;
+        var task = req.body.tag;
         var taskDesc = req.body.wordDesc;
         var taskName = req.body.taskName;
         console.log(req.body);
         var newTask = new Task ({
-            word: task,
+            tags:[{word:task}],
             wordDesc: taskDesc,
-            taskName: taskName
-            
+            taskName: taskName 
         });
-
 
 
         newTask.save(function(err){

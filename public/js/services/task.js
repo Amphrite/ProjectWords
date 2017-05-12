@@ -16,9 +16,9 @@ app.factory('taskService', function ($http, $q) {
             return deferred.promise;
         },
 
-        postTask: function (formData) {
+        postTask: function (testTags) {
         var deferred = $q.defer();
-            $http.post('/api/task', formData).then(function (res) { 
+            $http.post('/api/task', testTags).then(function (res) { 
                 deferred.resolve(res.data);
             }, function (res) {
                 deferred.reject(res);

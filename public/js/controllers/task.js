@@ -12,21 +12,26 @@ app.controller('taskCtrl', function($rootScope, $scope, $http, $location, taskSe
     }),
 
     $scope.tags = [
+       
     ]
 
     $scope.addTag = function () {
         console.log("hejsas")
         $scope.tags.push({
             text: $scope.formData.word
-        });
+        }); 
     };
 
         //POST FUNCTION//
     $scope.sub = function() {
-        var testTags = angular.extend({},$scope.formData, $scope.tags);
+
+        var dataset = {
+            tag: $scope.tags
+        };
+        var testTags = angular.extend({},$scope.formData, dataset);
         console.log(testTags);
      
-    taskService.postTask($scope.formData).then(function (data){
+    taskService.postTask(testTags).then(function (data){
        if(data) {
            console.log(data);
        }

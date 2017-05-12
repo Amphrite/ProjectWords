@@ -1,6 +1,7 @@
 
 body{
     background-image: url("/imgs/500.jpg");
+    
     background-size:cover;
     font-family: 'Roboto', sans-serif;
     background-repeat: no-repeat;
@@ -10,8 +11,19 @@ body{
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
- 
 }
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.30);
+     position: absolute;
+    display: block;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    z-index: -2;
+}
+
 h1, h2{
 }
 
@@ -25,9 +37,12 @@ hr{
 
 .startBtn{
     position: absolute;
-    right: 15px;
-    border-radius: 0px;
-    bottom: 58px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.panel-body {
+    position:relative;
 }
 
 body > ui-view > header > nav > div > div.row > ul > li > a{
@@ -116,6 +131,59 @@ body > ui-view > header > nav > div > div.row > ul > li > a{
         
 }
 
+
+.tags {
+    box-sizing: border-box;
+    padding-top: 20px;
+    list-style-type: none;
+}
+
+.tag {
+    float:left;
+    background-color: #34495e;
+    color: #fff;
+    display: block;
+    font-weight: 400;
+    border-radius: 1000px;
+    padding: 8px 16px;
+    padding-right: 30px;
+    margin-right: 9px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    font-size: 10px;
+    position: relative;
+    cursor: default;
+    opacity: 1;
+    transition: all 0.25s;
+    -webkit-animation: taganimatein 0.25s;
+    -moz-animation: taganimatein 0.25s;
+    -ms-animation: taganimatein 0.25s;
+    -o-animation: taganimatein 0.25s;
+    animation: taganimatein 0.25s;
+}
+
+ .tags .tag i {
+    display: inline-block;
+    position: absolute;
+    right: 7px;
+    top: 6px;
+    font-weight: bold;
+    font-style: normal;
+    font-size: 8px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.06);
+    text-align: center;
+    height: 15px;
+    width: 15px;
+    line-height: 15px;
+    border-radius: 1000px;
+    cursor: pointer;
+}
+
+.biggerTag {
+    font-size:15px;
+}
+
 .center-block{
     display: block;
     margin-left: auto;
@@ -137,6 +205,9 @@ body > ui-view > header > nav > div > div.row > ul > li > a{
     margin-top:20%;
 }
 
+.textShadow {
+    text-shadow: 1px 1px #7D7D7D;
+}
 
 
 .frontpageHeader {
@@ -181,11 +252,7 @@ body > ui-view > header > nav > div > div.row > ul > li > a{
     color:white;
 }
 
-* {
-  -webkit-border-radius: 0 !important;
-     -moz-border-radius: 0 !important;
-          border-radius: 0 !important;
-}
+
 /*MEDIA STUFF*/
 
 
