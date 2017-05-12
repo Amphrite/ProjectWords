@@ -3,8 +3,7 @@
 var app = angular.module('task.controller', []);
 
 
-app.controller('taskCtrl', function($scope, $http, taskService) {   
-
+app.controller('taskCtrl', function($rootScope, $scope, $http, $location, taskService, profileService) {   
     // GET FUNCTION //
     console.log("taskctrl");
     taskService.getCurrentTasks().then(function (data) {
@@ -12,16 +11,32 @@ app.controller('taskCtrl', function($scope, $http, taskService) {
         console.log(data.word);
     }),
 
+    $scope.tags = [
+    ]
+
+    $scope.addTag = function () {
+        console.log("hejsas")
+        $scope.tags.push({
+            text: $scope.formData.word
+        });
+    };
+
         //POST FUNCTION//
     $scope.sub = function() {
+        var testTags = angular.extend({},$scope.formData, $scope.tags);
+        console.log(testTags);
+     
     taskService.postTask($scope.formData).then(function (data){
        if(data) {
            console.log(data);
        }
        else {
            console.log(data.message);
-       }
+         }
+      
     })}
+
+    
 });
 
 

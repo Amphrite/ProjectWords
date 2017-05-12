@@ -17,7 +17,7 @@ app.factory('taskService', function ($http, $q) {
         },
 
         postTask: function (formData) {
-            var deferred = $q.defer();
+        var deferred = $q.defer();
             $http.post('/api/task', formData).then(function (res) { 
                 deferred.resolve(res.data);
             }, function (res) {
@@ -26,6 +26,7 @@ app.factory('taskService', function ($http, $q) {
             return deferred.promise;
             
         },
+        
 
         getTask: function(taskId) {
             var deferred = $q.defer();

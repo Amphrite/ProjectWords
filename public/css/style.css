@@ -113,6 +113,7 @@ body > ui-view > header > nav > div > div.row > ul > li > a{
 
 .panel-body{
         padding-bottom: 30px;
+        
 }
 
 .center-block{
@@ -122,6 +123,15 @@ body > ui-view > header > nav > div > div.row > ul > li > a{
     padding-bottom: 5px;
 
 }
+.navbar-brand{
+        width: 100px;
+    height: 100px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+
+
 
 .vcenter{
     margin-top:20%;
@@ -171,9 +181,11 @@ body > ui-view > header > nav > div > div.row > ul > li > a{
     color:white;
 }
 
-
-
-
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
 /*MEDIA STUFF*/
 
 
@@ -182,3 +194,6 @@ body > ui-view > header > nav > div > div.row > ul > li > a{
 
 
 }
+
+
+

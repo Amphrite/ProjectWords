@@ -90,6 +90,9 @@ module.exports = function () {
 
 
        router.post('/task', function (req,res) {
+           console.log(req.body.formData);
+           console.log("api");
+           console.log(req.body.wordDesc);
         var task = req.body.word;
         var taskDesc = req.body.wordDesc;
         var taskName = req.body.taskName;
