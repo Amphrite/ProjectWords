@@ -8,7 +8,7 @@ app.controller('taskCtrl', function($rootScope, $scope, $http, $location, taskSe
     console.log("taskctrl");
     taskService.getCurrentTasks().then(function (data) {
         $scope.data = data;
-        console.log(data.word);
+        console.log(data.text);
     }),
 
     $scope.tags = [
