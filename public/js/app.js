@@ -29,7 +29,6 @@ var app = angular.module('app', [
       .state('signup', {
         url: '/signup',
         templateUrl: 'views/signup.html'
-        
       })
 
       .state('tasktest', {
@@ -42,6 +41,12 @@ var app = angular.module('app', [
         url: '/tasktest2/:taskId',
         templateUrl: 'views/tasktest2.html',
         controller: 'answerCtrl'
+      })
+
+      .state('tasktest3', {
+        url: '/tasktest3',
+        templateUrl: 'views/tasktest3.html',
+        controller: 'taskCtrl'
       })
        
       .state('profile', {

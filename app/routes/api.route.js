@@ -90,17 +90,24 @@ module.exports = function () {
 
 
        router.post('/task', function (req,res) {
-        var task = req.body.tag;
+        var word = req.body.tag;
         var taskDesc = req.body.wordDesc;
         var taskName = req.body.taskName;
         console.log(req.body);
-        var newTask = new Task ({
-            tags:[{word:task}],
-            wordDesc: taskDesc,
-            taskName: taskName 
-        });
+
+        var newTask = new Task();          
+             newTask.taskName = taskName;
+             newTask.wordDesc = taskDesc;
+          for (var i = 0; i < word.length; i++) {
+             console.log(word[i].text);
+             newTask.tags.push(word[i]);
+                }
+// POSTING AF FLERE ORD TIL SAMME TASK!
+
+        
 
 
+        
         newTask.save(function(err){
             if (err) {
                 return res.send(err);

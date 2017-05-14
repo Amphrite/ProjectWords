@@ -22,6 +22,11 @@ app.controller('taskCtrl', function($rootScope, $scope, $http, $location, taskSe
         }); 
     };
 
+    $scope.removeTag = function(){
+        $scope.tags.splice(this, 1);
+        console.log($scope.tags);
+    };
+
         //POST FUNCTION//
     $scope.sub = function() {
 

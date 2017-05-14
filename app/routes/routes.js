@@ -30,5 +30,18 @@ module.exports = function (passport) {
         });
     });
 
+    //  /* GOOGLE */
+    // router.get('/google', passport.authenticate('google', {
+    //     scope: ['profile', 'email']
+    // }));
+
+    // // the callback after google has authenticated the user
+    // router.get('/google/callback',
+    //     passport.authenticate('google', {
+    //     successRedirect: '/#/frontpage',
+    //     failureRedirect: '/'
+    //     })
+    // );
+
     return router;
 };
