@@ -91,18 +91,16 @@ module.exports = function () {
 
        router.post('/task', function (req,res) {
         var word = req.body.tag;
-        var taskDesc = req.body.wordDesc;
         var taskName = req.body.taskName;
         console.log(req.body);
 
         var newTask = new Task();          
              newTask.taskName = taskName;
-             newTask.wordDesc = taskDesc;
           for (var i = 0; i < word.length; i++) {
-             console.log(word[i].text);
+             
              newTask.tags.push(word[i]);
                 }
-// POSTING AF FLERE ORD TIL SAMME TASK!
+            // POSTING AF FLERE ORD TIL SAMME TASK!
 
         
 
@@ -132,10 +130,24 @@ module.exports = function () {
         console.log(req.params.id);
         Task.findById(req.params.id, function (err, task) {
             console.log(req.params.id);
+            console.log(task);
             if (err) {
                 res.send(500, err);
             }
             res.json(200, task);
+        });
+    });
+
+    router.get('/tasktags/:id', function (req, res) {
+        console.log("Task Get ID");
+        console.log(req.params.id);
+        Task.findById(req.params.id, function (err, task) {
+            console.log(req.params.id);
+            console.log(task.tags);
+            if (err) {
+                res.send(500, err);
+            }
+            res.json(200, task.tags);
         });
     });
 

@@ -7,7 +7,8 @@ var app = angular.module('app', [
   'task.service',
   'logout.controller',
   'answer.controller',
-  'task.controller'
+  'task.controller',
+  'taskTags.controller'
 ])
 
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -46,7 +47,7 @@ var app = angular.module('app', [
       .state('tasktest3', {
         url: '/tasktest3/:taskId',
         templateUrl: 'views/tasktest3.html',
-        controller: 'answerCtrl'
+        controller: 'taskTagsCtrl'
       })
        
       .state('profile', {

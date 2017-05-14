@@ -8,7 +8,7 @@
             </h4>
         </div>
 
-        <div ng-controller="taskCtrl">
+        <div ng-controller="taskTagsCtrl">
             <div id="collapse1" class="panel-collapse collapse in">
                 <div class="panel-body">
                     <div class="row">
@@ -16,8 +16,8 @@
                         </div>
                         <div class="center-block col-md-8">
                             <ul class="tags">
-                                <li ng-repeat="tag in data">
-                                    <a class="tag biggerTag" href="">{{tag}}</a>
+                                <li ng-repeat="task in tasks">
+                                    <a class="tag biggerTag" ng-click="tagId()" href="/tasktest2/{{taskId}}">{{task.text}}</a>
                                 </li>
                             </ul>
                         </div>

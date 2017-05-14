@@ -15,10 +15,13 @@ app.controller('taskCtrl', function($rootScope, $scope, $http, $location, taskSe
        
     ]
 
+    
     $scope.addTag = function () {
-        console.log("hejsas")
+        var torsten = Math.random().toString(36).substring(7);
         $scope.tags.push({
-            text: $scope.formData.word
+            id: torsten,
+            text: $scope.formData.word,
+            desc: $scope.formData.wordDesc
         }); 
     };
 
@@ -29,7 +32,6 @@ app.controller('taskCtrl', function($rootScope, $scope, $http, $location, taskSe
 
         //POST FUNCTION//
     $scope.sub = function() {
-
         var dataset = {
             tag: $scope.tags
         };
@@ -42,8 +44,7 @@ app.controller('taskCtrl', function($rootScope, $scope, $http, $location, taskSe
        }
        else {
            console.log(data.message);
-         }
-      
+         }  
     })}
 
     

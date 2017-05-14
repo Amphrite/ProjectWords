@@ -8,7 +8,6 @@ var taskSchema = mongoose.Schema({
          
     ],
    
-    wordDesc    : {type: String, default: ""},
     taskName    : {type: String, default: ""}
 });
 

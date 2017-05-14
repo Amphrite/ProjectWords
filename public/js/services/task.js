@@ -33,7 +33,19 @@ app.factory('taskService', function ($http, $q) {
             console.log(taskId);
             $http.get('/api/task/' + taskId).then(function (res){
                 deferred.resolve(res.data);
-                console.log("Hejsa");
+                console.log(res.data);
+            }, function(res){
+                deferred.reject(res);
+            });
+            return deferred.promise;
+        },
+
+         getTaskTags: function(taskId) {
+            var deferred = $q.defer();
+            console.log(taskId);
+            $http.get('/api/tasktags/' + taskId).then(function (res){
+                deferred.resolve(res.data);
+                console.log(res.data);
             }, function(res){
                 deferred.reject(res);
             });

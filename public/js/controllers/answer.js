@@ -5,6 +5,7 @@ var app = angular.module('answer.controller', []);
 app.controller('answerCtrl', function($scope, $http, $rootScope, $state, $location, profileService, taskService) {   
         
       var current_taskId = $state.params.taskId;
+      $scope.myTagId = $rootScope.globalTagId; 
       console.log(current_taskId);
       // Get all tasks in project
       taskService.getTask(current_taskId).then(function (data) {
