@@ -52,6 +52,18 @@ app.factory('taskService', function ($http, $q) {
             return deferred.promise;
         },
 
+
+        getAnswers: function(){
+            var deferred = $q.defer();
+            $http.get('/api/answer').then(function(res){
+                deferred.resolve(res.data);
+                console.log(res.data);
+            },  function(res){
+                deferred.reject(res);
+            });
+            return deferred.promise;
+        }
+
         //Alle ord har en ID, Når der vælges et ord, skal det redirecte til en side med det givne ord .
         
     };

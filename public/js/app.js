@@ -60,6 +60,12 @@ var app = angular.module('app', [
         url: '/admin',
         templateUrl: 'views/admin.html',
         controller: 'taskCtrl'
+      })
+
+      .state('opgaver', {
+        url: '/opgaver',
+        templateUrl: 'views/opgaver.html',
+        controller: 'answerCtrl'
       });
 
 

@@ -1,0 +1,21 @@
+<header ng-include="'templates/header.html'"></header>
+<div class="container">
+    <div class="row">
+<div class="panel panel-default">
+    <div class="panel-heading">Udførte Opgaver</div>
+    <div class="panel-body">
+        <form>
+        <div class="row">
+            Her er en Lister over de opgaver som eleverne har udført
+            <ul class="tags">
+                <li ng-repeat="answer in answers">
+                    <a class="tag biggerTag">{{answers}}</a>
+                </li>
+            </ul>
+
+        </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>

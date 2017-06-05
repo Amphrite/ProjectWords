@@ -37,4 +37,13 @@ app.controller('answerCtrl', function($scope, $http, $rootScope, $state, $locati
             console.error("error in posting");
         })
     };
+
+
+    taskService.getAnswers().then(function (data) {
+        if (data) {
+          $scope.anwers = data;
+        } else {
+          console.log(data.message);
+        };
+      });
 });

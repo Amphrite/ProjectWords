@@ -138,6 +138,19 @@ module.exports = function () {
         });
     });
 
+    router.get('/answer', function (req, res) {
+        console.log("Task Get ID");
+        console.log(req.params.id);
+        Answer.find(function (err, answer) {
+            console.log(req.params.id);
+            console.log(answer);
+            if (err) {
+                res.send(500, err);
+            }
+            res.json(200, answer);
+        });
+    });
+
     router.get('/tasktags/:id', function (req, res) {
         console.log("Task Get ID");
         console.log(req.params.id);
