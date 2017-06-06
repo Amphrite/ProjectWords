@@ -5,9 +5,9 @@
             <div class="panel-heading">
                 <div class="panel-title">
                     <div class="row">
-                        <div class="col-md-2 bluee">Danish</div>
+                        <div class="col-md-2 bluee">Dansk</div>
                         <div class="title-middle col-md-offset-2 col-md-4">{{tasks.taskName}}</div>
-                        <div class="title-right col-md-4">Danish</div>
+                        <div class="title-right col-md-4">Dansk</div>
                     </div>
                 </div>
             </div>
@@ -21,16 +21,15 @@
                                     {{myTagId.desc}}
                                 </p>
                                 <hr>
-                                <label for="comment">Skriv en sætning med ordet:</label>
+                                <label for="comment">Elevens svar</label>
                             </div>
-                            <form ng-submit="sub()">
-                                <textarea type="text" name="answer" class="col-md-12" rows="5" ng-model="formData.answers" placeholder="Write your sentence"/>
-                                <div class="panel-footer">
-                                    <button type="submit" class="btn btn-primary pull-right">Next</button>
-                                    </form>
-                                    <a class="btn btn-primary pull-left"> Back </a>
-                                </div>
                             
+                                <p>{{answer}}</p>
+                                <div class="panel-footer">
+                            
+                                   
+                                    <a class="btn btn-primary pull-left"> Tilbage </a>
+                                </div>
                         </div>
                     </div>
                 </div>

@@ -9,10 +9,9 @@
             Her er en Lister over de opgaver som eleverne har udført
             <ul class="tags">
                 <li ng-repeat="answer in answers">
-                    <a class="tag biggerTag">{{answers}}</a>
+                    <a class="tag biggerTag" ng-click="answerId()" href="/opgaver2/{{answer._id}}">{{answer.answer}}</a>
                 </li>
             </ul>
-
         </div>
         </form>
     </div>

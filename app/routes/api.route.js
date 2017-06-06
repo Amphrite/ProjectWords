@@ -1,7 +1,6 @@
 var express = require('express');
 var router = express.Router();
 var User = require('./../models/user');
-var Answer = require('./../models/answers');
 var Task = require('./../models/tasks');
 
 
@@ -73,20 +72,51 @@ module.exports = function () {
     // ** USER INPUT ** //
     // router post af user input til tasks
 
-    router.post('/answer', function (req,res) {
-        var answer =req.body.answers;
-        console.log(req.body);
-        var newAnswer = new Answer ({
-            answer: answer
+    /*router.post('/answer', function (req,res) {
+        var answer = req.body.answers;
+        console.log(req.body.answers);
+        console.log("Answer Post")
+        var newAnswer = new Task ({
+            task.tags.answer: answer
         });
 
-        newAnswer.save(function(err){
+        /*newAnswer.save(function(err){
             if (err) {
                 return res.send(err);
             }
             return res.json(newAnswer);
         });
+    }); */
+
+        router.put('/answer/:id', function (req, res) {
+            var test = { name: "hello world" };
+            Task.findByIdAndUpdate(req.params.id, {$push: { 'tags': test.name }}, function (err, answer) {
+                if (err) {
+                    return res.send(err);
+                }
+                console.log(answer);
+            console.log("answer put router");
+            console.log(req.params.id);
+            console.log(req.body[0].id);
+
+        });
     });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
        router.post('/task', function (req,res) {
@@ -141,7 +171,7 @@ module.exports = function () {
     router.get('/answer', function (req, res) {
         console.log("Task Get ID");
         console.log(req.params.id);
-        Answer.find(function (err, answer) {
+        Task.find(function (err, answer) {
             console.log(req.params.id);
             console.log(answer);
             if (err) {
@@ -163,6 +193,20 @@ module.exports = function () {
             res.json(200, task.tags);
         });
     });
+
+    router.get('/answertags/:id', function (req, res) {
+        console.log("Answer Get ID");
+        console.log(req.params.id);
+        Task.findById(req.params.id, function (err, answer) {
+            console.log(req.params.id);
+            if (err) {
+                res.send(500, err);
+            }
+            res.json(200, answer.answer);
+        });
+    });
+
+    
 
 
     return router;

@@ -5,10 +5,13 @@ var app = angular.module('app', [
   'profile.controller',
   'profile.service',
   'task.service',
+  'answer.service',
   'logout.controller',
   'answer.controller',
   'task.controller',
-  'taskTags.controller'
+  'taskTags.controller',
+  'answerTags.controller',
+  'uniqueAnswerTags.controller'
 ])
 
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
@@ -65,10 +68,14 @@ var app = angular.module('app', [
       .state('opgaver', {
         url: '/opgaver',
         templateUrl: 'views/opgaver.html',
-        controller: 'answerCtrl'
+        controller: 'answerTagsCtrl'
+      })
+
+      .state('opgaver2', {
+        url: '/opgaver2/:answerId',
+        templateUrl: 'views/opgaver2.html',
+        controller: 'uniqueAnswerTagsCtrl'
       });
-
-
-
+      
        $locationProvider.html5Mode(true);
   });

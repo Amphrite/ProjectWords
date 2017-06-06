@@ -17,11 +17,12 @@ app.controller('taskCtrl', function($rootScope, $scope, $http, $location, taskSe
 
     
     $scope.addTag = function () {
-        var torsten = Math.random().toString(36).substring(7);
+        var rng = Math.random().toString(36).substring(7);
         $scope.tags.push({
-            id: torsten,
+            id: rng,
             text: $scope.formData.word,
-            desc: $scope.formData.wordDesc
+            desc: $scope.formData.wordDesc,
+            
         }); 
     };
 

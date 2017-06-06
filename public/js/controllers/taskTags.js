@@ -14,7 +14,6 @@ app.controller("taskTagsCtrl", function($scope, $rootScope, $state, taskService)
       taskService.getTaskTags(current_taskId).then(function (data) {
         if (data) {
           $scope.tasks = data;
-          
           console.log(data);
         } else {
           console.log(data.message);
