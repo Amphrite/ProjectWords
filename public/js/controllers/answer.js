@@ -18,6 +18,7 @@ app.controller('answerCtrl', function($scope, $http, $rootScope, $state, $locati
  
     profileService.getCurrentUser().then(function (data) {
         $scope.data = data;
+        $rootScope.userid = data._id;
         $rootScope.authenticated = true;
         console.log($rootScope.authenticated);
         
@@ -33,9 +34,13 @@ app.controller('answerCtrl', function($scope, $http, $rootScope, $state, $locati
        
     ]
 
+    console.log($rootScope.userid);
+
     $scope.sub = function() { 
        $scope.formData.push({
-         id: $rootScope.globalTagId._id
+         id: $rootScope.globalTagId._id,
+         answers: $scope.formData.answers,
+         userId: $rootScope.userid
        });
        console.log($scope.formData);
 

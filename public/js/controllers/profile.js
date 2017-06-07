@@ -16,6 +16,8 @@ app.controller('ProfileController', function ($scope, $rootScope, $location, pro
         $location.path('/');
 
     });
+
+    $scope.date = moment().format('h:mm a ');
    
 });
 

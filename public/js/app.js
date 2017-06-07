@@ -9,6 +9,7 @@ var app = angular.module('app', [
   'logout.controller',
   'answer.controller',
   'task.controller',
+  'signup.controller',
   'taskTags.controller',
   'answerTags.controller',
   'uniqueAnswerTags.controller'
@@ -32,6 +33,7 @@ var app = angular.module('app', [
 
       .state('signup', {
         url: '/signup',
+        controller: 'signupController',
         templateUrl: 'views/signup.html'
       })
 

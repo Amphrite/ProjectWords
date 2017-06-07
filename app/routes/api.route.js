@@ -3,8 +3,22 @@ var router = express.Router();
 var User = require('./../models/user');
 var Task = require('./../models/tasks');
 
+var isAuthenticated = function (req, res, next) {
+// if user is authenticated in the session, call the next() to call the next request handler
+// Passport adds this method to request object. A middleware is allowed to add properties to
+
+    if (req.isAuthenticated()) {
+        return next();
+    }
+// if the user is not authenticated then redirect him to the login page
+
+    res.json(403, "you're not authenticated");
+};
 
 module.exports = function () {
+    router.all('*', isAuthenticated, function (req, res, next) {
+        next();
+    });
 
     // Get all
     router.get('/users', function (req, res) {
@@ -27,7 +41,7 @@ module.exports = function () {
         });
     });
 
-    
+
     router.get('/current', function (req, res) {
         User.findById(req.user.id, function (err, currentUser) {
             if (err) {
@@ -88,17 +102,12 @@ module.exports = function () {
         });
     }); */
 
-        router.put('/answer/:id', function (req, res) {
-            var test = { name: "hello world" };
-            Task.findByIdAndUpdate(req.params.id, {$push: { 'tags': test.name }}, function (err, answer) {
-                if (err) {
-                    return res.send(err);
-                }
-                console.log(answer);
-            console.log("answer put router");
-            console.log(req.params.id);
-            console.log(req.body[0].id);
-
+    router.put('/answer/:id', function (req, res) {
+        var answer = { userId: req.body[0].userId, answer: req.body[0].answers};
+        var update = {$push: {'tags.$.answer': answer }};
+        var query = { '_id': req.params.id, 'tags._id': req.body[0].id  }
+        Task.findOneAndUpdate(query, update, { projection: { 'tags.$': 1 } , returnNewDocument: true }, function( err, answer ){
+            console.log(answer);
         });
     });
 
@@ -108,35 +117,24 @@ module.exports = function () {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-       router.post('/task', function (req,res) {
+    router.post('/task', function (req, res) {
         var word = req.body.tag;
         var taskName = req.body.taskName;
         console.log(req.body);
 
-        var newTask = new Task();          
-             newTask.taskName = taskName;
-          for (var i = 0; i < word.length; i++) {
-             
-             newTask.tags.push(word[i]);
-                }
-            // POSTING AF FLERE ORD TIL SAMME TASK!
+        var newTask = new Task();
+        newTask.taskName = taskName;
+        for (var i = 0; i < word.length; i++) {
 
-        
+            newTask.tags.push(word[i]);
+        }
+        // POSTING AF FLERE ORD TIL SAMME TASK!
 
 
-        
-        newTask.save(function(err){
+
+
+
+        newTask.save(function (err) {
             if (err) {
                 return res.send(err);
             }
@@ -145,7 +143,7 @@ module.exports = function () {
     });
 
     router.get('/task', function (req, res) {
-        Task.find( function (err, currentTask) {
+        Task.find(function (err, currentTask) {
             console.log("router.task");
             if (err) {
                 res.send(500, err);
@@ -154,7 +152,7 @@ module.exports = function () {
         });
     });
 
-        // Get by id
+    // Get by id
     router.get('/task/:id', function (req, res) {
         console.log("Task Get ID");
         console.log(req.params.id);
@@ -206,7 +204,7 @@ module.exports = function () {
         });
     });
 
-    
+
 
 
     return router;

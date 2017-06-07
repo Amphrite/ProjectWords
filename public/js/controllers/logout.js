@@ -15,10 +15,10 @@ app.controller('logoutController', function ($http, $location, $scope, $rootScop
             method: 'GET',
             url: '/auth/logout'
                 }).then(function successCallback(response) {
-                    console.log("successful logout?");
-                    $location.path('/frontpage');
+                    console.log("successful logout");
+                    $location.path('/');
                 }, function errorCallback(response) {
-                
+                    $location.path('/');
         });
     };
 });

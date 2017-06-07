@@ -10,12 +10,13 @@ var taskSchema = mongoose.Schema({
         id: {type: String, default: ""},
 
         answer: [
-        {type: String, default: "."}
-        ],
+            { userId: String,
+              answer: String
+            }
+        ]
     }],
-        
-   
-    taskName    : {type: String, default: ""},
+    taskName    : {type: String, default: ""}
+
 
     
 });
